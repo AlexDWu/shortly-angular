@@ -1,9 +1,11 @@
 <div id='signin'>
   <h1>signin</h1>
   <form name="signinForm" ng-submit='signin()'>
-    <input type='text'ng-model='user.username'>
-    <input type="password" ng-model='user.password'>
-    <button>signin</button>
+    <input name='username' type='text' ng-model='user.username' ng-pattern='usernameRegex' required>
+    <input name='password' type="password" ng-model='user.password' ng-pattern='passwordRegex' required>
+    <button ng-disabled='signinForm.$invalid'>signin</button>
+<!--     <span class='ng-hide' ng-show='signupForm.username.$invalid'>Username must be alphanumeric</span>
+    <span class='ng-hide' ng-show='signinForm.password.$invalid'>Password is invalid</span> -->
   </form>
   <a href="#/signup">Don't have an account? <strong>Signup</strong> ...</a>
 </div>

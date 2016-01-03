@@ -5,6 +5,8 @@ angular.module('shortly.auth', [])
 
 .controller('AuthController', function ($scope, $window, $location, Auth) {
   $scope.user = {};
+  $scope.usernameRegex = '^[a-zA-Z0-9_]*$';
+  $scope.passwordRegex = '^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$';
 
   $scope.signin = function () {
     Auth.signin($scope.user)
